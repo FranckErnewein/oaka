@@ -1,0 +1,15 @@
+{
+  "name": "oaka",
+  "version": "0.0.0",
+  "homepage": "https://github.com/FranckErnewein/oaka",
+  "authors": [
+    "Franck Ernewein <franck.ernewein@gmail.com>"
+  ],
+  "description": "easy business",
+  "main": "app.js",
+  "keywords": [
+    "oaka"
+  ],
+  "license": "copyright",
+  "private": true
+}
