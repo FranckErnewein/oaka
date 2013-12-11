@@ -4,17 +4,18 @@ define([
 ], function( _, Backbone ){
 
 	return Backbone.View.extend({
-		initialize: function(){
-			if( !this.options.cstr ){
+		initialize: function( options ){
+			if( !options.cstr ){
 				new ReferenceError( 'you must specified a constructor in options.cstr' );
 			}
+			this.cstr = options.cstr;
 			this.children = {};
 			this.collection.on('add', this.addChild, this );
 			this.collection.on('remove', this.removeChild, this );
 			this.collection.each( this.addChild, this );
 		},
 		addChild: function( model ){
-			var view = new this.options.cstr({ model: model });
+			var view = new this.cstr({ model: model });
 			view.$el.appendTo( this.$el );
 			if( view.render ) view.render();
 			this.children[ model.id ] = view;

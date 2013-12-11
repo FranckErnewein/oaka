@@ -9,9 +9,9 @@ define([
 			'change': 'fieldChange'
 		},
 		
-		initialize: function(){
+		initialize: function( options ){
 			this.$fields = {};
-			this.setFields( this.options.fields );
+			this.setFields( options.fields );
 			this.model.on('change', this.onModelChange, this );
 		},
 

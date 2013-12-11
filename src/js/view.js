@@ -66,7 +66,7 @@ define([
 							var instance = new subview.cstr( options ).render();
 							instance.parent = this;
 							this._subviews.push( instance );
-							var name = subview.name || instance.options.name;
+							var name = subview.name || options.name;
 							if( name ){
 								this._byName[ name ] = instance;
 							}
