@@ -25,7 +25,7 @@ define([
 					if( options.error ) options.error( err );
 					def.reject( err );
 				}else{
-					var data = model.toObject();
+					var data = model ? model.toObject() : null;
 					options.success( data );
 					def.resolve( data );	
 				}
@@ -43,6 +43,7 @@ define([
 				delete data.__v;
 				this.mongoModel.findByIdAndUpdate( this.id, data, {}, callback );
 			}else if( method == 'delete' ){
+				this.mongoModel.findByIdAndRemove( this.id, {}, callback );
 				//do nothing
 			}
 			return def;

@@ -16,10 +16,11 @@ define([
 					if( options.error ) options.error( err );
 					def.reject( err );
 				}else{
-					console.log( typeof data );
-					console.log( data.__proto__ );
-					options.success( data );
-					def.resolve( data );	
+					var r = _.map( data, function( mongoosModel ){
+						return mongoosModel.toObject();
+					});
+					options.success( r );
+					def.resolve( r );	
 				}
 			};
 			if( method == 'create' ){

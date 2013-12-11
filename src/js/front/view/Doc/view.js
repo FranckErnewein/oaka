@@ -1,10 +1,11 @@
 define([
+	'jquery',
 	'backbone',
 	'front/view/AddForm',
 	'front/view/DoubleBinding',
 	'view!front/view/AuthorGrid',
 	'view!front/view/ContactList'
-], function( Backbone, AddForm, DoubleBinding, AuthorGrid, ContactList ){
+], function( $, Backbone, AddForm, DoubleBinding, AuthorGrid, ContactList ){
 	
 	return Backbone.View.extend({
 		subviews:[
@@ -48,7 +49,8 @@ define([
 		],
 		events: {
 			'click .save-doc': 'saveDoc',
-			'click .undo-change': 'undo'
+			'click .undo-change': 'undo',
+			'click .delete-doc': 'deleteDoc'
 		},
 		undo: function(){
 			this.model.fetch();	
@@ -61,6 +63,14 @@ define([
 			this.$('.saveblock').hide();
 			return false;
 		},
+		deleteDoc: function( e ){
+			if( confirm('are you sure ?') ){
+				this.model.destroy().done( function(){
+					document.location.hash = $(e.target).attr('href');
+				});
+			}
+			return false;
+		},	
 		initialize: function(){
 			this.docChanged = 0;
 			this.model.on('change', this.onModelChange, this );
@@ -95,7 +105,8 @@ define([
 			Backbone.View.prototype.remove.call( this );
 			this.model.on('change', this.onModelChange );
 			this.model.on('network:error', this.onNetworkError );
-		}
+		},
+
 	});
 
 });

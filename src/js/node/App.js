@@ -56,7 +56,7 @@ define([
 
 		app.get('/api/1/docs', function( req, res ){
 			if( req.session.user ){
-				var docs = new Docs()
+				var docs = new Docs();
 				docs.fetch({
 					conditions: {
 						author: req.session.user
@@ -145,6 +145,23 @@ define([
 					});
 				}
 			});
+		});
+
+		app.del('/api/1/doc/:docid', function( req, res ){
+			if( req.session.user ){
+				var doc = new Doc({_id: req.params.docid });
+				doc.fetch().done( function(){
+					if( doc.get('author') == req.session.user ){
+						doc.destroy().done( function(){
+							res.send({ deleted: req.params.docid });
+						});
+					}else{
+						res.send(403);
+					}
+				});
+			}else{
+				res.send(403);
+			}
 		});
 
 	}
