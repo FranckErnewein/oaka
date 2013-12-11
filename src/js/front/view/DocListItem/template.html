@@ -1,0 +1,7 @@
+<h5><%= this.model.get('title') || '...' %></h5>
+<p>
+	<%= this.model.articles.size() %> Articles,
+	<%= this.model.receivers.size() %> Contacts
+</p>
+<hr />
+<a href="#doc/<%= this.model.id %>" class="fullsize"></a>

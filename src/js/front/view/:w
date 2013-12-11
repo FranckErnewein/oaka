@@ -1,0 +1,28 @@
+<div>
+	<div class="infos">
+		<input type="text" name="title" placeholder="Title" />
+		<address>
+			<textarea name="address" rows="2" cols="30"></textarea>	
+		</address>
+		<input type="text" class="input-mini" name="zip_code" placeholder="ZIP" />
+		<input type="text" class="input-small" name="city" placeholder="City" />
+	</div>
+	<hr />
+	<div class="contacts"></div>
+	<hr />
+	<div class="author-grid"></div>
+	<div class="add-article">
+		<form class="form-inline">
+			<input type="text" name="name" placeholder="New article" class="new-article-name" />	
+			<div class="input-append">
+				<input type="number" name="required" placeholder="quantity" class="input-mini new-article-required" />	
+				<input type="text" name="unit" class="add-on input-mini new-article-unit" />	
+			</div>
+			<input type="submit" class="btn btn-primary" value="Add"/>
+		</form>
+	</div>	
+	<div class="saveblock">
+		<a href="#" class="save-doc btn btn-success">Save</a>
+		<a href="#" class="undo-change btn btn-warning">Undo</a>
+	</div>
+</div>

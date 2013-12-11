@@ -1,0 +1,14 @@
+{
+	"name": "Oaka",
+	"version": "0.1.0",
+	"description": "make your command",
+	"author": "Franck Ernewein <franck.ernewein@gmail.com>",
+	"dependencies": {
+		"express": "3.0.6",
+		"mongoose": "3.6.7",
+		"socket.io": "0.9.x"
+	},
+	"engine": {
+		"node": ">=0.10"
+	}
+}

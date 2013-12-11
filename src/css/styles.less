@@ -1,0 +1,45 @@
+@import 'reset';
+
+@cellsize: 600px;
+
+.board{
+	position: relative;
+	width: @cellsize;
+	height: @cellsize;
+	margin: @cellsize / 7;
+	border: 1px solid #000;
+}
+
+.cells{
+	
+	.cell{
+		position: absolute;
+		width: @cellsize / 8;
+		height: @cellsize / 8;
+		color: #aaa;
+	}
+	.cell.white{ background: white; }
+	.cell.black{ background: #333; }
+
+}
+.pieces{
+
+	.piece{
+		position: absolute;
+		width: @cellsize / 16;
+		height: @cellsize / 16;
+		margin: @cellsize / 32;
+		//border: 1px solid #999;
+		text-align: center;
+		border-radius: @cellsize;
+		color: #999;
+	}
+	.piece.white{ 
+		background: #ccc; 
+		border: 1px solid #333;
+	}
+	.piece.black{ 
+		background: black; 
+		border: 1px solid #ccc;
+	}
+}

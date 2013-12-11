@@ -1,0 +1,25 @@
+<table class="table table-striped table-bordered table-hover">
+	<thead>
+		<tr>
+			<th colspan="2"></th>
+			<% this.model.receivers.each( function( receiver ){ %>
+			<th><%= receiver.id %></th>
+			<% }, this ); %>
+			<td></td>
+		</tr>
+	</thead>	
+	<tbody class="article-list"></tbody>
+	<tfoot>
+		<tr class="lead">
+			<th colspan="2"></th>
+			<% this.model.receivers.each( function( receiver ){ %>
+			<td class="right">
+				<%= receiver.answers.getTotalPrice() %> <%= this.model.get('devise') %>
+			</td>
+			<% }, this ); %>
+			<th class="right">
+				<%= this.model.getTotalPrice() %> <%= this.model.get('devise') %>
+			</th>
+		</tr>
+	</tfoot>
+</table>

@@ -1,0 +1,30 @@
+.view{
+	.not-processed{
+		opacity: 0.1;
+		.icon-star,
+		.icon-star-empty{
+			display: none;
+		}
+	}
+
+	td.selected{
+		background-color: lighten( yellow, 30 ) !important;
+	}
+
+	td{
+		position: relative;
+
+		@iconpadding: 3px;
+		.toggle-select, .toggle-visibility{
+			position: absolute;
+			left: @iconpadding;
+			cursor: pointer;
+		}
+		.toggle-select{
+			top: @iconpadding;
+		}
+		.toggle-visibility{
+			bottom: @iconpadding;
+		}
+	}
+}

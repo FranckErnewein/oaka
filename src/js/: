@@ -1,0 +1,22 @@
+define([
+	'underscore',
+	'backbone'
+], function( _, Backbone ){
+
+	return Backbone.View.extend({
+		
+		initialize: function(){
+			_.each( this.model.attributes, this.bindField, this );
+		},
+
+		bindField: function( value, name ){
+			var $field = this.$('[name='+name+']');
+		},
+
+		remove: function(){
+
+		}
+		
+
+	});
+});

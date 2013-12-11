@@ -1,0 +1,42 @@
+<div>
+	<h1><%= this.model.get('title') %></h1>
+	<hr />
+	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th colspan="2"></th>
+				<% this.model.receivers.each( function( receiver ){ %>
+				<th><%= receiver.id %></th>
+				<% }, this ); %>
+			</tr>
+		</thead>	
+		<tbody class="article-list">
+			<% this.model.articles.each( function( article ){ %>
+			<% if( article.isVisible() ){ %>
+			<tr>
+				<th><%= article.id %></th>
+				<th><%= article.get('required') %></th>
+				<% this.model.receivers.each( function( receiver ){ %>
+				<% var answer = receiver.answers.get( article.id ) %>
+				<td>
+					<% if( receiver.get('token') == this.model.token ){ %>
+						<form action="" data-receiver="<%= receiver.id %>" data-article="<%= article.id %>" class="answer-item control-group form-inline">
+							<input type="number" min="0" max="<%= article.get('required')%>" class="input-mini" name="quantity" placeholder="quanity"/> x
+							<input type="number" min="0" class="input-mini" step="any" name="unit_price" placeholder="Unit price"/>
+							<%= this.model.get('devise') %>
+						</form>
+					<% }else{ %>
+						<%= answer.get('quantity') %>
+					<% } %>
+				</td>
+				<% }, this ); %>
+			</tr>
+			<% } %>
+			<% }, this ); %>
+		</tbody>
+	</table>
+	<div class="saveblock">
+		<a href="#" class="save-doc btn btn-success">Save</a>
+		<a href="#" class="undo-change btn btn-warning">Undo</a>
+	</div>
+</div>

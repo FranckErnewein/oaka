@@ -1,0 +1,48 @@
+<td>
+	<span class="dropdown">
+		<a class="dropdown-toggle icon-list" data-toggle="dropdown" href="#"><a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<li><a href="#"><i class="icon-edit"></i> Edit</a></li>	
+			<li><a href="#"><i class="icon-lock"></i> Lock</a></li>	
+			<li class="divider"></li>
+			<li><a href="#"><i class="remove-article icon-trash"></i> Delete</a></li>	
+		</ul>
+	</span>
+	<%= this.model.get('name' ) %>
+</td>
+<td class="center">
+	<span class="text-<%= this.selectedState() %>">
+		<small>
+			<%= this.model.getTotalItemSelected() %>/<%= this.model.get('required' ) %> 
+		</small>
+		<b class="bold">
+			<%= this.getIndice() %>
+		</span>
+		<%= this.model.get('unit') || '' %>
+	</span>
+</td>
+<% this.model.collection.parent.receivers.each( function( receiver ){ %>
+<% var answer = receiver.answers.get( this.model.id ); %>
+<td class="right <%= (answer && answer.get('selected')) ? 'selected' : '' %>">
+	<% if( answer ) {%>
+			<% if( answer.get('visible') ){ %>
+			<i class="icon-eye-open toggle-visibility" data-article-id="<%= this.model.id %>" data-receiver-id="<%= receiver.id %>"></i>
+			<span class="<%= (answer && !answer.processed()) ? '': 'not-processed' %>">
+				<%= answer.get('quantity') %> x 
+				<%= answer.get('unit_price') + this.model.getRoot().get('devise') %>  =
+				<span class="label">
+					<%= answer.getGlobalPrice() %> <%= this.model.getRoot().get('devise') %>
+				</span>
+				<i class="icon-star<%= answer.get('selected') ? '': '-empty' %> cursor toggle-select" data-article-id="<%= this.model.id %>" data-receiver-id="<%= receiver.id %>"></i>
+			</span>
+			<% }else{ %>
+				<i class="icon-eye-close toggle-visibility" data-article-id="<%= this.model.id %>" data-receiver-id="<%= receiver.id %>"></i>
+			<% } %>
+
+	<% } %>
+</td>
+<% }, this ); %>
+<td class="right lead">
+	<%= this.model.getTotalPrice() %>
+	<%= this.model.getRoot().get('devise') %>
+</td>
