@@ -34,6 +34,11 @@ define([
 		initialize: function(){
 			this.author = new Author();
 			this.author.fetch();
+			this.author.on('error', function( model, xhr ){
+				if( xhr.status == 403 ){
+					this.displayModal();
+				}
+			}, this);
 		},
 
 		events: {
