@@ -8,7 +8,6 @@ define([
 		},
 		submitForm: function( e ){
 			var data = {};
-
 			if( ! this.$fields ){
 				this.$fields = this.$('[name]');
 			}
@@ -23,7 +22,6 @@ define([
 
 			var cstr = this.options.collection.model;
 			var model = new cstr();
-			console.log( data );
 			model.set( data );
 			if( model.validationError ){
 				_.each( model.validationError, function( value, key ){

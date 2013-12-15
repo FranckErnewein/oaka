@@ -11,7 +11,7 @@ define([
 		subviews:[
 			{
 				cstr: ContactList,
-		   		options: function(){
+				options: function(){
 					return {
 						el: this.$('.contacts'),
 						collection: this.model.receivers

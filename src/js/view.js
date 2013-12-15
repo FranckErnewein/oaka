@@ -65,6 +65,7 @@ define([
 							if( !options ){ throw new ReferenceError( className + '.subviews[' + i + '].options does not return a valid object' ); } 
 							var instance = new subview.cstr( options ).render();
 							instance.parent = this;
+							instance.options = options;
 							this._subviews.push( instance );
 							var name = subview.name || options.name;
 							if( name ){
@@ -107,5 +108,5 @@ define([
 
 			});
 		}
-	}
+	};
 });
