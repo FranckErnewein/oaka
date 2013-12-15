@@ -11,5 +11,17 @@
     "oaka"
   ],
   "license": "copyright",
-  "private": true
+  "private": true,
+  "dependencies": {
+	"requirejs": "latest",
+	"requirejs-plugins": "latest",
+    "jquery": "latest",
+    "backbone": "latest",
+    "lodash": "latest",
+    "momentjs": "latest",
+    "bootstrap": "latest"
+  },
+  "devDependencies": {
+    "less": "latest"
+  }
 }

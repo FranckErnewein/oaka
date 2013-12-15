@@ -5,12 +5,25 @@ if( typeof window == 'undefined' ){
 
 requirejs.config({
 	paths: {
-		'jquery': 'lib/jquery-1.7.2.min',
-		'underscore': 'lib/underscore',
+		 //create alias to plugins 
+		'async': 'vendor/requirejs-plugins/src/async',
+		'font': 'vendor/requirejs-plugins/src/font',
+		'goog': 'vendor/requirejs-plugins/src/goog',
+		'image': 'vendor/requirejs-plugins/src/image',
+		'json': 'vendor/requirejs-plugins/src/json',
+		'noext': 'vendor/requirejs-plugins/src/noext',
+		'mdown': 'vendor/requirejs-plugins/src/mdown',
+		'text': 'vendor/requirejs-plugins/lib/text',
+		'propertyParser' : 'lib/requirejs-plugins/src/propertyParser',
+
+		'jquery': 'vendor/jquery/jquery',
+		//'underscore': 'vendor/underscore/underscore',
+		'underscore': 'vendor/lodash/dist/lodash.underscore',
+		'backbone': 'vendor/backbone/backbone',
+		'moment': 'vendor/momentjs/moment',
+		'less':'vendor/less/dist/less-1.5.1',
+
 		'underscore-def': 'lib/underscore.deferred',
-		'backbone': 'lib/backbone',
-		'moment': 'lib/moment',
-		'less':'lib/less-1.3.3.min',
 		'bootstrap':'lib/bootstrap'
 	},
 
